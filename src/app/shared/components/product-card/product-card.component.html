@@ -1,0 +1,12 @@
+<mat-card *ngIf="product">
+    <div class="card-image" [style.background-image]="'url('+ product?.productAsset?.preview +')'" [routerLink]="['./details', product.slug]" queryParamsHandling="merge"></div>
+    <mat-card-content>
+        <p class="title" [routerLink]="['./details', product.slug]" queryParamsHandling="merge">{{product.productName}}</p>
+
+        <div class="float-l">
+            <p class="price">{{ product.priceWithTax.min | formatPrice }}</p>
+        </div>
+
+        <button class="float-r" mat-stroked-button color="primary" [routerLink]="['./details', product.slug]" queryParamsHandling="merge">Info</button>
+    </mat-card-content>
+</mat-card>

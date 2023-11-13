@@ -1,0 +1,36 @@
+<div class="breadcrumbs">
+    <app-breadcrumbs [breadcrumbs]="breadcrumbs"></app-breadcrumbs>
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div class="content">
+    <lib-ngx-image-zoom
+    [thumbImage]=myThumbnail
+    [fullImage]=myFullresImage
+    [magnification]="1"
+    [enableScrollZoom]="true"
+    [enableLens]="true"
+    [lensWidth]="200"
+    [lensHeight]="200"
+    ></lib-ngx-image-zoom>
+    <div class="info">
+        <h1>{{ product?.name }}</h1>
+        <hr>
+        <p class="description">{{ product?.description }}</p>
+
+        <div class="variants">
+            <p class="variants-title">{{product?.variants && product.variants.length > 1 ? 'Select variant:' : 'Variant'}}</p>
+            <mat-radio-group aria-label="Select variant" [formControl]="variantControl">
+                <mat-radio-button *ngFor="let variant of product?.variants" [value]="variant">{{variant.name}}</mat-radio-button>
+            </mat-radio-group>
+
+            <p class="code">{{variantControl.value?.sku}}</p>
+        </div>
+
+        <p class="price">{{ variantControl.value?.priceWithTax | formatPrice }}</p>
+        
+        <button mat-raised-button color="primary" (click)="addToCart(variantControl.value, qty)">Add to Cart</button> 
+        <div class="added" *ngIf="qtyInCart[variantControl.value?.id] > 0">IN CART: <b>{{ qtyInCart[variantControl.value?.id] }}</b></div>
+    </div>
+</div>

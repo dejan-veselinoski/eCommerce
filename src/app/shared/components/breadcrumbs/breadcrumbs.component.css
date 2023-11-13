@@ -1,0 +1,25 @@
+.breadcrumbs {
+    display: flex;
+}
+
+.breadcrumb-link {
+    padding: 10px 10px;
+    color: #1976d2;
+    font-weight: 400;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.separator {
+    margin-right: 15px;  
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.unset {
+    font-weight: unset !important;
+}

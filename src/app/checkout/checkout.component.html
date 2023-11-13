@@ -1,0 +1,51 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div class="content">
+    <h1 class="label"><mat-icon>shopping_cart</mat-icon> Checkout</h1>
+    
+    <div *ngIf="shoppingCart$ | async as cart; else nodata">
+        <div *ngFor="let line of cart.lines;" class="item d-flex align-i-c justify-c-between border-b"> 
+            <div class="d-flex align-i-c ">
+                <div [style.background-image]="'url('+ line.featuredAsset?.preview +')'" class="item-img"></div>
+                <p class="item-title">{{ line.productVariant.name }}</p>
+            </div>
+            <div class="align-r">
+                <p class="price">{{ line.linePriceWithTax | formatPrice }}</p>
+
+                <div class="quantity-block">
+                    <p class="quantity">QTY:</p>
+
+                    <div class="d-flex">
+                        <mat-icon class="qty-btn mr-10" (click)="decrement(line)">remove</mat-icon>
+                        <div class="qty">{{ line.quantity }}</div>
+                        <mat-icon class="qty-btn mr-0" (click)="increment(line)">add</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-c-between mt-20 mb-20">
+            <p class="item-title mt-20">Subtotal: </p> <p class="price mt-20">{{ cart.subTotalWithTax | formatPrice }}</p>
+        </div>
+        <div class="d-flex justify-c-between mt-20 pb-20 border-b">
+            <p class="item-title">Shipping: </p> <p class="price">{{ cart.shippingWithTax | formatPrice }}</p>
+        </div>
+        <div class="d-flex justify-c-between mt-20 pb-20 border-b">
+            <p class="item-title"><b>Total:</b> </p> <p class="price-total">{{ cart.totalWithTax | formatPrice }}</p>
+        </div>
+        
+        <div class="empty-result" *ngIf="cart.lines.length < 1">
+            <p class="empty-label">Your Cart is Empty!</p>
+            <button mat-stroked-button color="primary" class="mt-20" [routerLink]="['/']">Start Shopping Now</button>
+        </div>
+    </div>
+
+    <ng-template #nodata>
+        <div class="empty-result">
+            <p class="empty-label">Your Cart is Empty!</p>
+            <button mat-stroked-button color="primary" class="mt-20" [routerLink]="['/']">Start Shopping Now</button>
+        </div>
+    </ng-template>
+
+    
+</div>

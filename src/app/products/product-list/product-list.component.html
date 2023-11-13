@@ -1,0 +1,34 @@
+<div class="breadcrumbs" *ngIf="showToolbar">
+    <div class="filter-block">
+        <app-breadcrumbs [breadcrumbs]="breadCrumbs"></app-breadcrumbs>
+
+        <ng-container *ngIf="collection$ | async as collection">
+            <p class="category-title">{{collection.name}}</p>
+        
+            <div class="subcategories">
+                <div class="subcategory" *ngFor="let child of collection.children" [routerLink]="['/products/', child.slug]">
+                    {{ child.name }}
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="filter-block">
+        <app-product-filters [idValues]="idValues"
+        [activeFacetValueIds]="activeFacetValueIds"
+        [totalResults]="unfilteredTotalItems"></app-product-filters>
+    </div>
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div class="product-list">
+    <div *ngFor="let product of products$ | async; trackBy: trackByProductId" class="product">
+        <app-product-card [product]="product"></app-product-card>
+    </div>
+    <div *ngIf="(products$ | async)?.length === 0" class="no-products-message">
+        No products available
+    </div>
+</div>
+
+<button mat-raised-button color="primary" (click)="loadMore()" *ngIf="displayLoadMore$ | async">More</button>
+

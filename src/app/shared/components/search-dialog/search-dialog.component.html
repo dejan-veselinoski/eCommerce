@@ -1,0 +1,9 @@
+<div class="search">
+    <mat-icon (click)="onCloseDialog()" class="close">close</mat-icon>
+
+    <mat-form-field appearance="outline" class="w-100">
+        <input matInput placeholder="Search for your favorite products here..." value="Sushi" [formControl]="search" (keyup.enter)="searchSubmit()">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary" (click)="searchSubmit()">Search</button>
+</div>

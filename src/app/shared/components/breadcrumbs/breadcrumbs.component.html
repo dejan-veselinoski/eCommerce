@@ -1,0 +1,16 @@
+<div class="breadcrumbs">
+    <div class="breadcrumb-link pointer">
+        <span [routerLink]="['/']">Categories</span>
+    </div>
+
+    <ng-container *ngIf="breadcrumbs">
+        <div class="breadcrumb-link pointer" *ngFor="let breadcrumb of tail(breadcrumbs); last as isLast">
+            <span class="separator">/</span>
+            <span *ngIf="isLast && !linkLast; else link" [routerLink]="['/products', breadcrumb.slug]" queryParamsHandling="merge" class="bold" [ngClass]="{'unset' : router.url.includes('details')}">{{ breadcrumb.name }}</span>
+            <ng-template #link>
+                <span [routerLink]="['/products', breadcrumb.slug]" queryParamsHandling="merge">{{ breadcrumb.name }}</span>
+            </ng-template>
+        </div>
+    </ng-container>
+
+</div>

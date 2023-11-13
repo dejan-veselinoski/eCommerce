@@ -1,0 +1,16 @@
+<div class="filters">
+    <div *ngFor="let facet of facets; trackBy:trackById" class="filter">
+        <mat-form-field appearance="outline">
+            <mat-label>Filter by {{ facet.name | titlecase }}</mat-label>
+            <mat-select>
+              <mat-option (click)="unselectFacetValueIdInRoute(facet.values); $event.stopPropagation();">
+                <span (click)="unselectFacetValueIdInRoute(facet.values); $event.stopPropagation();">None</span>
+              </mat-option>
+              <mat-option *ngFor="let value of facet.values; trackBy:trackById" (click)="toggleFacetValueIdInRoute(value.id); $event.stopPropagation();">
+                <input [checked]="isActive(value.id)" (click)="toggleFacetValueIdInRoute(value.id); $event.stopPropagation();" type="checkbox" class="mr-10"> 
+                <span (click)="toggleFacetValueIdInRoute(value.id); $event.stopPropagation();">{{ value.name }}</span>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+</div>

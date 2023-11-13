@@ -1,0 +1,8 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title [routerLink]="['./products', collection?.slug]">
+        {{collection?.name}}
+      </mat-card-title>
+    </mat-card-header>
+    <div class="card-image" [routerLink]="['./products', collection?.slug]" [style.background-image]="'url('+ collection?.featuredAsset?.preview +')'"></div>
+</mat-card>

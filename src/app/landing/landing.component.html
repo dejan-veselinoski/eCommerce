@@ -1,0 +1,15 @@
+<div class="animated-slogan">
+    <h1>Discover More, <span>Shop Better</span></h1>
+  </div>
+
+<div class="carousel" *ngIf="collectionsData$ | async">
+    <ngu-carousel #categoryCarousel [inputs]="carouselConfig" [dataSource]="productList">
+        <div *nguCarouselDef="let item;" class="item">
+            <app-category-card [collection]="item"></app-category-card>
+        </div>
+        <button NguCarouselNext class="arrow rightRs"><mat-icon>chevron_right</mat-icon></button>
+        <button NguCarouselPrev class="arrow leftRs"><mat-icon>chevron_left</mat-icon></button>
+    </ngu-carousel>    
+</div>
+
+<mat-spinner *ngIf="loading"></mat-spinner>

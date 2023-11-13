@@ -1,0 +1,99 @@
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    width: 20%;
+    padding: 0 20px;
+}
+
+.category-title {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    font-size: 30px;
+}
+
+.breadcrumbs {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background-color: white;
+    padding: 10px 0;
+    display: flex;
+}
+
+.subcategories {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.subcategory {
+    padding: 5px 15px;
+    cursor: pointer;
+    color: gray;
+    margin-left: 10px;
+    background-color: #d7ebff;
+    border-radius: 5px;
+}
+
+.no-products-message {
+    font-size: 20px;
+    color: gray;
+    margin-left: 10px;
+    margin-top: 30px;
+    animation: show 0s 1s forwards;
+    visibility: hidden;
+}
+
+button {
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 10px; 
+}
+
+@keyframes show {
+    to   { visibility: visible; }
+}
+
+mat-spinner {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 999;
+}
+
+@media (max-width: 1200px) {
+    .breadcrumbs {
+        flex-wrap: wrap;
+    }
+
+    .filter-block {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        width: 100%; 
+    }
+}
+
+@media (min-width: 1300px) and (max-width: 1500px) {
+    .product {
+        width: 25%; 
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1300px) {
+    .product {
+        width: 33.33%; 
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .product {
+        width: 50%; 
+    }
+}

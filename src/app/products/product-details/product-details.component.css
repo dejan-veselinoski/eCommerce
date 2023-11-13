@@ -1,0 +1,94 @@
+::ng-deep .ngxImageZoomContainer > img{
+    max-height: 340px;
+}
+
+::ng-deep .mdc-radio__outer-circle {
+    background-color: white;
+}
+
+:host ::ng-deep label {
+    font-size: 12px;
+}
+
+.content {
+    display: flex;
+    padding-top: 70px;
+}
+
+.info {
+    width: 100%;
+    padding: 0 50px;
+}
+
+.description {
+    margin-top: 50px;
+    color: rgb(26, 26, 26);
+}
+
+.variants {
+    background-color: #eaf3f7;
+    padding: 10px;
+    margin-top: 25px;
+}
+
+.variants-title {
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+.code {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.added {
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+}
+
+.breadcrumbs {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background-color: white;
+    padding: 10px 0;
+}
+
+mat-spinner {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 999;
+}
+
+@media (max-width: 992px) {
+    .content {
+        flex-wrap: wrap;
+    }
+
+    ::ng-deep .ngxImageZoomContainer > img{
+        max-width: 330px;
+    }
+
+    .info {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    lib-ngx-image-zoom {
+        margin: auto;
+    }
+}
