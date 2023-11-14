@@ -17,9 +17,7 @@ import { GET_COLLECTIONS } from '../shared/types/results';
 export class LandingComponent implements OnInit{
 
   collectionsData$!: Observable<GetCollectionsQuery['collections']['items']>;
-  productList: Array<Collection> = [];
-
-
+  categoryList: Array<Collection> = [];
 
   @ViewChild('categoryCarousel') categoryCarousel!: NguCarousel<any>;
   carouselConfig: NguCarouselConfig = {
@@ -51,7 +49,7 @@ export class LandingComponent implements OnInit{
 
     this.collectionsData$.subscribe(
       (data: any) => {
-        this.productList = data;
+        this.categoryList = data;
         this.loading = false;
         this.cdRef.detectChanges();
       }

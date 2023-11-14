@@ -3,7 +3,7 @@
   </div>
 
 <div class="carousel" *ngIf="collectionsData$ | async">
-    <ngu-carousel #categoryCarousel [inputs]="carouselConfig" [dataSource]="productList">
+    <ngu-carousel #categoryCarousel [inputs]="carouselConfig" [dataSource]="categoryList">
         <div *nguCarouselDef="let item;" class="item">
             <app-category-card [collection]="item"></app-category-card>
         </div>
