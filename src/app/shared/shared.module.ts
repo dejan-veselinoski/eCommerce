@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { ApolloModule } from 'apollo-angular';
 import { HttpClientModule } from '@angular/common/http';
-import { NguCarouselModule } from '@ngu/carousel';
+import {
+  NguCarousel,
+  NguCarouselDefDirective,
+  NguCarouselNextDirective,
+  NguCarouselPrevDirective,
+} from '@ngu/carousel';
 import { RouterModule } from '@angular/router';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { FormatPricePipe } from './pipes/format-price.pipe';
@@ -27,7 +32,11 @@ import { MaterialModule } from './material.module';
     CommonModule,
     ApolloModule,
     HttpClientModule,
-    NguCarouselModule,
+    NguCarousel,   
+    NguCarousel,
+    NguCarouselDefDirective,
+    NguCarouselNextDirective,
+    NguCarouselPrevDirective,
     RouterModule,
     MaterialModule,
   ],
@@ -35,7 +44,11 @@ import { MaterialModule } from './material.module';
     CategoryCardComponent,
     ApolloModule,
     HttpClientModule,
-    NguCarouselModule,
+    NguCarousel,  
+    NguCarousel,
+    NguCarouselDefDirective,
+    NguCarouselNextDirective,
+    NguCarouselPrevDirective,
     RouterModule,
     ProductCardComponent,
     FormatPricePipe,
