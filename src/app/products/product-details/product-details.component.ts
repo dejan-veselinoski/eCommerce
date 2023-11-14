@@ -94,7 +94,7 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
 
-  private getMostRelevantCollection(collections: Collection[], lastCollectionSlug: string | null) {
+  getMostRelevantCollection(collections: Collection[], lastCollectionSlug: string | null) {
     const lastCollection = collections.find(c => c.slug === lastCollectionSlug);
     if (lastCollection) {
       return lastCollection;
